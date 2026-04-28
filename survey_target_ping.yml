@@ -1,0 +1,12 @@
+---
+- name: Test connectivity using survey-selected target group
+  hosts: "{{ target_group | default('standard_linux') }}"
+  gather_facts: false
+
+  tasks:
+    - name: Confirm AAP can connect to the selected target group
+      ansible.builtin.ping:
+
+    - name: Show selected group and target host
+      ansible.builtin.debug:
+        msg: "AAP connected to {{ inventory_hostname }} using target group {{ target_group }}"
