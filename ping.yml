@@ -1,0 +1,12 @@
+---
+- name: Test connectivity using selected AAP Machine Credential
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Confirm AAP can connect to the host
+      ansible.builtin.ping:
+
+    - name: Show target host
+      ansible.builtin.debug:
+        msg: "AAP successfully connected to {{ inventory_hostname }}"
